@@ -3,7 +3,10 @@
 Web-based application racing team simulation. 
 this application demonstrate how to achieve **1ms** looping in JavaScript with web worker
 (by default JavaScript setInterval just can achieve 10ms). every **1ms** car simulation will send vehicle status through websocket.
-and in other side Team Racing can monitor the vehicle status in realtime (with 10ms refresh rate). For public User/ Client, can get the last 5 minutes history data from database.
+
+And in other side Team Racing can monitor the vehicle status in realtime (with 10ms refresh rate).
+
+For public User/ Client, can get the last 5 minutes history data from database.
 
 This web application can work for multi *car simulator* & *multi dashboard*
 
@@ -88,7 +91,7 @@ Make sure the machine you want to use to run this web application has access to 
    </dependency>
    ```
 
-### Run webapp from command line
+### Run web-app from command line
 *For Windows 10 user please use **PowerShell***
 
 1. Goto project root folder
@@ -107,16 +110,16 @@ Make sure the machine you want to use to run this web application has access to 
    ```text
    ./mvnw spring-boot:run
    ```
-5. Open localhost:7076 in your browser
+5. Open ***localhost:7076*** in your browser
 
-## How to use the webapp
+## How to use the web-app
 ### Home
 - You will have 3 button. *Car Connector*, *Team Dashboard*, and *Client*
 
 ### Create Car Simulation
 - Open car connector by clicking Car Connector on Homepage or open directly in browser at ***localhost:7076/car***
 - Make a car simulation to the connector by entering the vehicle id ex. **lewis**
-- Click connect, and you will see the car instrument will generate value for speed, break, and gear
+- Click connect, and you will see the car instrument will generate value for speed, brake, and gear
 
 ### Monitor a car
 - Open Team Dashboard by clicking Team Dashboard on Homepage or open directly in browser at ***localhost:7076/dashboard***
