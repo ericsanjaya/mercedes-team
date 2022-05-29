@@ -30,7 +30,7 @@ public class ClientController {
         Calendar currentTimeNow = Calendar.getInstance();
         currentTimeNow.add(Calendar.MINUTE, -5);
         Date dt = currentTimeNow.getTime();
-        var pg = PageRequest.of(page, 50, Sort.by("date_time").descending());
+        var pg = PageRequest.of(Math.max(page - 1, 0), 50, Sort.by("date_time").descending());
         var result = vehicleStatusRepository.findByDateTimeIsAfter(vehicleId, pg);
 
         var haveNext = result.size() >= 50;

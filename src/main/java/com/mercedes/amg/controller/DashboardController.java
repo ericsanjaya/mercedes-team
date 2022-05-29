@@ -28,7 +28,7 @@ public class DashboardController {
 
     @GetMapping("/history")
     public String dashboardHistory(Model model, @RequestParam String vehicleId, @RequestParam int page) {
-        var pg = PageRequest.of(page, 50);
+        var pg = PageRequest.of(Math.max(page - 1, 0), 50);
         var result = vehicleStatusRepository.findByVehicleId(vehicleId, pg);
 
         var haveNext = result.size() >= 50;
