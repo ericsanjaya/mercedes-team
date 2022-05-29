@@ -10,6 +10,8 @@ For public User/ Client, can get the last 5 minutes history data from database.
 
 This web application can work for multi *car simulator* & *multi dashboard*
 
+---
+
 This application consist of 3 component
 1. Car Connector
 2. Team Dashboard
