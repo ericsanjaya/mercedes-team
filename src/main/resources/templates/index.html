@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mercedes Team Racing</title>
+</head>
+<body>
+    <h1>Mercedes Team Racing Home</h1>
+    <button type="button" onclick="car()">Car Connector</button>
+    <button type="button" onclick="dashboard()">Team Dashboard</button>
+    <button type="button" onclick="client()">Client</button>
+</body>
+</html>
+
+<script type="text/javascript">
+    function car() {
+        var url = "/car";
+        window.open(url);
+    }
+
+    function dashboard() {
+        var url = "/dashboard";
+        window.open(url);
+    }
+
+    function client() {
+        var url = "/client";
+        window.open(url);
+    }
+</script>

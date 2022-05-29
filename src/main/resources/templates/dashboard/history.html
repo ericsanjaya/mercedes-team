@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Racing Data History</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+  	  border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+<h1>Mercedes Team Racing</h1>
+<h2>Racing Data History</h2>
+<div style="margin-bottom: 10px">
+  Vehicle id :
+  <span th:text="${vehicleId}"></span>
+</div>
+<div>
+  <table style="width:450px">
+    <tr>
+      <th>Date</th>
+      <th>Speed</th>
+      <th>Break</th>
+      <th>Gear</th>
+    </tr>
+    <tr th:each="dt : ${data}">
+      <td style="text-align:center"><span th:text="${dt.dateTime}">-</span></td>
+      <td style="text-align:center"><span th:text="${dt.speed}">-</span></td>
+      <td style="text-align:center"><span th:text="${dt.brakeCondition}">-</span></td>
+      <td style="text-align:center"><span th:text="${dt.gear}">-</span></td>
+    </tr>
+  </table>
+  <div align="right" style="width:450px; margin-top:20px;">
+    <th:block th:if="${page > 1}">
+      <th:block th:each="i: ${#numbers.sequence(1, page - 1)}">
+        <a th:href="@{${path} + '?vehicleId=' + ${vehicleId} + '&page=' + ${i}}"><span th:text="${i}"></span></a>
+      </th:block>
+    </th:block>
+
+    <th:block th:if="${page > 0}">
+      <b><span th:text="${page}"></span></b>
+    </th:block>
+
+    <span th:if="${haveNext}">
+        <a th:href="@{${path} + '?vehicleId=' + ${vehicleId} + '&page=' + ${page + 1}}">Next</a>
+    </span>
+  </div>
+
+</div>
+</body>
+</html>

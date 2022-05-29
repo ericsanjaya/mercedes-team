@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mercedes Racing Team</title>
+    <style>
+         table, th, td {
+            border: 1px solid black;
+  			border-collapse: collapse;
+         }
+    </style>
+</head>
+<body>
+    <h1>Mercedes Racing Team Dashboard</h1>
+    <span>Vehicle id </span>
+    <input id="vehicleId" type="text" name="vehicleId" placeholder="lewis" size="25" required>
+    <button type="button" onclick="connect()">Connect</button>
+    <button type="button" onclick="wsClose()">Disconnect</button>
+    <button type="button" onclick="getHistory()">History</button>
+    <br>
+    <div style="margin-top: 30px">Car Monitor</div>
+    <table style="width:450px">
+        <tr>
+            <th>Speed</th>
+            <th>Break</th>
+            <th>Gear</th>
+        </tr>
+        <tr>
+            <td style="text-align:center"><div id="speed">-</div></td>
+            <td style="text-align:center"><div id="break">-</div></td>
+            <td style="text-align:center"><div id="gear">-</div></td>
+        </tr>
+    </table>
+</body>
+
+
+<script src="js/main.js"></script>
+
+<script type="text/javascript">
+    function getHistory() {
+        var vehicleId = document.getElementById("vehicleId").value;
+        localStorage.setItem("vehicleId", vehicleId);
+
+        var url = "/dashboard/history?vehicleId="+ vehicleId +"&page=0";
+        window.open(url, "_self");
+    }
+</script>
+
+<script type="module">
+	import {connect, sendMessage, wsClose} from './js/dasboard.js';
+
+	window.connect = connect;
+	window.sendMessage = sendMessage;
+	window.wsClose = wsClose;
+</script>
